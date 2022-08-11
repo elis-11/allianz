@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { deleteUserApi, updateUserApi } from "../helpers/apiCalls";
-import { useDataContext } from "../context/DataProvider";
+import { deleteUserApi, updateUserApi } from "../../helpers/apiCalls";
+import { useDataContext } from "../../context/DataProvider";
 import { MdSaveAlt } from "react-icons/md";
 import {AiTwotoneEdit, AiFillDelete} from "react-icons/ai"
 
-export const UserItem = ({ user }) => {
+export const MemItem = ({ user }) => {
   // import variable from context and rename to other variable using :
   // => this prevents conflict with prop "user" which has the same name
   const { user: userLoggedIn, users, setUsers } = useDataContext();
@@ -75,10 +75,10 @@ export const UserItem = ({ user }) => {
         </div>
       )}
       {/* TOGGLE Edit mode by btton */}
-        {/* <div className="icons">
+        <div className="icons">
           <AiTwotoneEdit className="icon" onClick={() => setEditMode(!editMode)}/>
           <AiFillDelete className="icon" onClick={() => handleDelete()}/>
-        </div> */}
+        </div>
 
     </div>
   );

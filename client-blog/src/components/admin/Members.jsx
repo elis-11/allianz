@@ -4,6 +4,7 @@ import { useDataContext } from "../../context/DataProvider";
 import { getUsersApi } from "../../helpers/apiCalls";
 import {UserList} from "../UserList"
 import "./Admin.scss";
+import { MemList } from "./MemList";
 
 export const Members = () => {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ export const Members = () => {
   return (
     <div className="Members">
       <h2>Members</h2>
-      <UserList />
+      {/* <UserList /> */}
+      <MemList/>
       <div className="errors">{errors}</div>
     </div>
   );
