@@ -1,0 +1,23 @@
+@API_URL = http://localhost:5000
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MGZkYjJkYzc4N2QyMDZiNTU2NzkiLCJ1c2VybmFtZSI6IkVsaXMiLCJlbWFpbCI6ImVsaXNAZ21haWwuY29tIiwiYXZhdGFyIjoiaHR0cHM6Ly9yZXMuY2xvdWRpbmFyeS5jb20vZG5nbDRkanZhL2ltYWdlL3VwbG9hZC92MTY2MDE2MjAxMy9sajVwZG1xYjFzaW10aGVoaGJsYy5wbmciLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2NjAyMDc2MzAsImV4cCI6MTY2MDYzOTYzMH0.fyUgpofxMe8Numi5GhJ2NKndYy8y9bsfFi_yNy7Ur2I
+
+
+### all posts
+GET {{API_URL}}/posts
+Authorization: {{TOKEN}}
+
+### single post
+GET {{API_URL}}/posts/62f4d2196a5bb4969ba1a74c
+Authorization: {{TOKEN}}
+
+### create
+POST {{API_URL}}/posts
+Content-Type: application/json
+
+{
+    "title": "Tralala",
+    "author": "Elis",
+    "description": "Tralala again",
+    "likes": 1,
+    "dislikes": 18
+}

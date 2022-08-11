@@ -4,6 +4,7 @@ import cors from "cors"
 import morgan from "morgan"
 import "./connect-db.js"
 import userRouter from "./routes/user.router.js"
+import postsRouter from "./routes/posts.router.js"
 import { errorHandler404, errorHandlerGeneric } from "./lib/error-handler.js"
 
 const app = express()
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 
 // load ROUTERS
 app.use("/user", userRouter)
+app.use("/posts", postsRouter)
 
 /// 404 error handler
 app.use( errorHandler404 )

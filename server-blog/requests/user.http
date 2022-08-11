@@ -1,5 +1,5 @@
 @API_URL = http://localhost:5000
-@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MDE2YTdkOWFjYzYyMThlYzY0NjQiLCJ1c2VybmFtZSI6ImVsaXMiLCJlbWFpbCI6ImVsaXNAZ21haWwuY29tIiwiYXZhdGFyIjoiaHR0cHM6Ly9yZXMuY2xvdWRpbmFyeS5jb20vZG5nbDRkanZhL2ltYWdlL3VwbG9hZC92MTY2MDE1ODMxNS9kYmx0dHk5Z3htYXg1Y3ZuemF2Ny5wbmciLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2NjAxNTg1NjQsImV4cCI6MTY2MDU5MDU2NH0.HCQHjWSmipMrdLYSzCb7o7IPPvJSA_Eb5WfgWJ-mpQM
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MGZkYjJkYzc4N2QyMDZiNTU2NzkiLCJ1c2VybmFtZSI6IkVsaXMiLCJlbWFpbCI6ImVsaXNAZ21haWwuY29tIiwiYXZhdGFyIjoiaHR0cHM6Ly9yZXMuY2xvdWRpbmFyeS5jb20vZG5nbDRkanZhL2ltYWdlL3VwbG9hZC92MTY2MDE2MjAxMy9sajVwZG1xYjFzaW10aGVoaGJsYy5wbmciLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2NjAyMDc2MzAsImV4cCI6MTY2MDYzOTYzMH0.fyUgpofxMe8Numi5GhJ2NKndYy8y9bsfFi_yNy7Ur2I
 
 
 GET {{API_URL}}/
@@ -10,7 +10,7 @@ GET {{API_URL}}/user/admin
 Authorization: {{TOKEN}}
 
 ### User single
-GET {{API_URL}}/user/62d01d408f8229cb5c10206c
+GET {{API_URL}}/user/62f413c22dc787d206b55689
 Authorization: {{TOKEN}}
 
 # IF WE WOULD CREATE A TODO in this template
@@ -49,7 +49,7 @@ GET {{API_URL}}/user
 Authorization: {{TOKEN}}
 
 
-@USER_ID = 62e28056af54e394a2c0a999
+@USER_ID = 62f401b57d9acc6218ec647c
 
 ### UPDATE user
 PATCH {{API_URL}}/user/{{USER_ID}}
@@ -57,9 +57,8 @@ Authorization: {{TOKEN}}
 Content-Type: application/json
 
 {
-  "username": "losrobbos",
-  "email": "los@los.com",
-  "password": "losl123" 
+  "username": "Albert",
+  "role": "Admin"
 }
 
 ### Delete user
