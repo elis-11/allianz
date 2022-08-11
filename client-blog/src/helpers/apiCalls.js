@@ -1,23 +1,25 @@
+const API_URL = import.meta.env.VITE_API_URL;
 
-const API_URL = import.meta.env.VITE_API_URL
+console.log({ API_URL });
 
-console.log( { API_URL } )
+export const getPostsApi= async ()=>{
+  const response = await fetch(`${API_URL}/posts`,
+  )
+  return response.json();
+}
 
 export const getUsersApi = async (token) => {
   const response = await fetch(`${API_URL}/user`, {
-
-    // send token to protected route => so API can identify us and allows us access!
     headers: {
-      Authorization: token
-    }
-  })
-  return response.json()
-}
+      Authorization: token,
+    },
+  });
+  return response.json();
+};
 
-// signup 
+// signup
 export const signupApi = async (userData) => {
-
-  console.log(userData)
+  console.log(userData);
 
   const response = await fetch(`${API_URL}/user`, {
     method: "POST",
@@ -26,14 +28,13 @@ export const signupApi = async (userData) => {
     },
     // convert object to string that we can send over the wire!
     body: JSON.stringify(userData),
-  })
+  });
 
-  return response.json()
-}
+  return response.json();
+};
 
 // login
 export const loginApi = async (email, password) => {
-
   const response = await fetch(`${API_URL}/user/login`, {
     method: "POST",
     headers: {
@@ -41,27 +42,26 @@ export const loginApi = async (email, password) => {
     },
     // convert object to string that we can send over the wire!
     body: JSON.stringify({ email, password }),
-  })
+  });
 
-  return response.json()
-}
+  return response.json();
+};
 
 // update user at API
 export const updateUserApi = async (token, userId, updateData) => {
-
   const response = await fetch(`${API_URL}/user/${userId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: token  // needed to send JWT token
+      Authorization: token, // needed to send JWT token
     },
     // credentials: 'include',
-    body: JSON.stringify(updateData)
-  })
+    body: JSON.stringify(updateData),
+  });
 
   // parse updated user from API
-  return response.json()
-}
+  return response.json();
+};
 
 export const deleteUserApi = async (token, userId) => {
   const response = await fetch(`${API_URL}/user/${userId}`, {
@@ -69,12 +69,11 @@ export const deleteUserApi = async (token, userId) => {
     headers: {
       Authorization: token, // needed to send JWT token
     },
-  })
+  });
 
   // parse updated user from API
-  return response.json()
-}
-
+  return response.json();
+};
 
 export const updateUserApiCookies = async (userId, updateData) => {
   const response = await fetch(`${API_URL}/user/${userId}`, {
@@ -84,9 +83,8 @@ export const updateUserApiCookies = async (userId, updateData) => {
     },
     credentials: "include",
     body: JSON.stringify(updateData),
-  })
+  });
 
   // parse updated user from API
-  return response.json()
-}
-
+  return response.json();
+};

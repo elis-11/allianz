@@ -15,9 +15,22 @@ POST {{API_URL}}/posts
 Content-Type: application/json
 
 {
-    "title": "Tralala",
-    "author": "Elis",
-    "description": "Tralala again",
-    "likes": 1,
-    "dislikes": 18
+    "title": "I am Senior TypeScript Dev soon",
+    "author": "Robert",
+    "description": "Yadda Yadda. Lots of typescript. Love it or hate it"
 }
+
+### update post
+PATCH {{API_URL}}/posts/62f4d2196a5bb4969ba1a74c
+Authorization: {{TOKEN}}
+Content-Type: application/json
+
+{
+    "title": "Tralala again",
+    "author": "Elis",
+    "description": "Tralala again"
+}
+
+### Delete Post
+Delete {{API_URL}}/posts/62f53ef23d84d13d3a1e4d0d
+Authorization: {{TOKEN}}

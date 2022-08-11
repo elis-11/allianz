@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react"
+import { createContext, useContext, useState } from "react"
 import { loadUserInLocalStorage } from "../helpers/localStorage"
 
 const DataContext = createContext()
@@ -14,11 +14,23 @@ export const DataProvider = ({ children }) => {
   const [user, setUser] = useState(userLs) // use user from localstorage as default
   const [users, setUsers] = useState([])
   const [errors, setErrors] = useState("")
+  const [posts, setPosts] = useState([])
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     let response = await fetch(`${API_URL}/posts`);
+  //     const postsApi = await response.json();
+  //     setPosts(postsApi);
+  //   };
+  //   fetchData();
+  // }, []);
+  
 
   const sharedData = { 
     user, setUser, 
     users, setUsers,
-    errors, setErrors 
+    posts, setPosts,
+    errors, setErrors
   }
 
   return <DataContext.Provider value={ sharedData }>

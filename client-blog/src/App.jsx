@@ -1,5 +1,4 @@
 import "./styles/App.scss";
-import { useDataContext } from "./context/DataProvider";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
@@ -8,10 +7,13 @@ import { Dashboard } from "./pages/Dashboard";
 import { Navbar } from "./components/Navbar";
 import { Admin } from "./pages/Admin";
 import { ProtectedPage } from "./components/ProtectedPage";
-import { Posts } from "./pages/Posts";
 import { NotFound } from "./pages/NotFound";
+import { Posts } from "./components/posts/Posts";
+import { PostDetails } from "./components/posts/PostDetails";
+import { useDataContext } from "./context/DataProvider";
 
 function App() {
+  const {user, setUser} = useDataContext()
   return (
     <div className="App">
       <header className="App-header">
@@ -32,14 +34,8 @@ function App() {
               </ProtectedPage>
             }
           />
-          <Route
-            path="/posts"
-            element={
-              <ProtectedPage>
-                <Posts />
-              </ProtectedPage>
-            }
-          />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/posts/:id" element={<PostDetails />} />
           <Route
             path="/admin/*"
             element={

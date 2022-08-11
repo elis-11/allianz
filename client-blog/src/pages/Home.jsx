@@ -1,5 +1,5 @@
 import { useDataContext } from "../context/DataProvider"
-import '../styles/Auth.scss';
+import '../styles/App.scss';
 
 export const Home = () => {
   const { user } = useDataContext()
