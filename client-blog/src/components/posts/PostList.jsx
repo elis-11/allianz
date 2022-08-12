@@ -2,29 +2,30 @@ import { Link } from "react-router-dom";
 import { useDataContext } from "../../context/DataProvider";
 
 export const PostList = () => {
-
-const { posts} = useDataContext()
+// export const PostList = (index = 0) => {
+  const { posts } = useDataContext();
 
   return (
     <div className="container">
-    <div className="content">
-      {posts.map((post) => (
-        <div key={post._id} className="post">
-          <div>
-            <img src={post.image} />
+      <div className="content">
+        {posts.map((post) => (
+          <div key={post._id} className="post">
+            <div>
+              <img src={post.image} />
+              {/* <img alt="avatar" src={`https://source.unsplash.com/150x150/?nature,${index}`} /> */}
+            </div>
+            <div>{post.title}</div>
+            <div>
+              {post.createdAt} by {post.author}
+              {/* {post.createdAt.substring(0, 10)} by {post.author} */}
+            </div>
+            <div>{post.description}</div>
+            <div>
+              <Link to={`/posts/${post.id}`}>Read more...</Link>
+            </div>
           </div>
-          <div>{post.title}</div>
-          <div>
-            {post.createdAt} by {post.author}
-            {/* {post.createdAt.substring(0, 10)} by {post.author} */}
-          </div>
-          <div>{post.description}</div>
-          <div>
-            <Link to={`/posts/${post.id}`}>Read more...</Link>
-          </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 };

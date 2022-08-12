@@ -61,6 +61,9 @@ userRouter.post("/", async (req, res, next) => {
   const user = await User.create(userData)
   res.json(user) // send response to frontend
 
+  // prevent uploading to cloudinary if no image exists
+  if(!avatarImageStr) return
+
   // upload image to cloudinary
   const resCloudinary = await cloudinary.uploader.upload(avatarImageStr)
   console.log(resCloudinary)

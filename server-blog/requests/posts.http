@@ -13,10 +13,11 @@ Authorization: {{TOKEN}}
 ### create
 POST {{API_URL}}/posts
 Content-Type: application/json
+Authorization: {{TOKEN}}     
 
 {
     "title": "I am Senior TypeScript Dev soon",
-    "author": "Robert",
+    "author": "Elis",
     "description": "Yadda Yadda. Lots of typescript. Love it or hate it"
 }
 

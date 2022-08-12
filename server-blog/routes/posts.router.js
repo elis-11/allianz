@@ -12,7 +12,7 @@ postsRouter.get("/", async (req, res, next) => {
 });
 
 // single Post
-postsRouter.get("/:id", async (req, res, next) => {
+postsRouter.get("/:id", auth, async (req, res, next) => {
   try {
     const singlePost = await Post.findById(req.params.id);
     res.json(singlePost);
@@ -22,7 +22,7 @@ postsRouter.get("/:id", async (req, res, next) => {
 });
 
 // create Post  withoutb - AUTH
-postsRouter.post("/", async (req, res, next) => {
+postsRouter.post("/", auth, async (req, res, next) => {
   try {
     const newPost = await Post.create(req.body);
     res.json(newPost);

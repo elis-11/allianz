@@ -18,15 +18,15 @@ export const Navbar = () => {
     <nav>
       <NavLink to="/">Home</NavLink>
       {!user && <NavLink to="/login">Login</NavLink>}
+      {!user && <NavLink to="/signup">Signup</NavLink>}
+      {user && <NavLink to="/dashboard">Dashboard</NavLink>}
+      <NavLink to="/posts">Posts</NavLink>
+      {user?.role === "Admin" && <NavLink to="/admin">Admin</NavLink>}
       {user && (
         <NavLink to="#" onClick={logout}>
           Logout
         </NavLink>
       )}
-      {!user && <NavLink to="/signup">Signup</NavLink>}
-      {user && <NavLink to="/dashboard">Dashboard</NavLink>}
-      <NavLink to="/posts">Posts</NavLink>
-      {user?.role === "Admin" && <NavLink to="/admin">Admin</NavLink>}
     </nav>
   );
 };
