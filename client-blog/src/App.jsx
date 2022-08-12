@@ -17,8 +17,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>My Webpage (Template)</h2>
         <Navbar />
+        <h2>Blog-Fullstack</h2>
       </header>
       {/* MAIN CONTENT / PAGE */}
       <main>

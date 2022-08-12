@@ -2,8 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   .links {
-
-  margin-top: 3rem;
+    margin-top: 3rem;
 
     display: column;
     border-right: 3px solid white;
@@ -66,17 +65,21 @@
         .edit {
           width: 100%;
           display: flex;
-
+          .avatar {
+            width: 18%;
+            border: 1px solid #ccc;
+          }
           .name {
             border: none;
             background-color: transparent;
             padding-left: 1rem;
-            width: 35%;
+            width: 25%;
             text-align: left;
             color: rgb(94, 93, 93);
             font-size: 20px;
           }
           .email {
+            width: 35%;
             border: none;
             background-color: transparent;
             padding-left: 1rem;

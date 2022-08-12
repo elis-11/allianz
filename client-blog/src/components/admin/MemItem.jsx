@@ -58,6 +58,12 @@ export const MemItem = ({ user }) => {
       {editMode ? (
         // EDIT MODE => input fields + save button
         <div className="edit">
+          <div className="avatar">
+            <img
+              style={{ width: "30px", borderRadius: "50%" }}
+              src={user.avatar}
+            />
+          </div>
           <input
             className="name"
             name="username"
