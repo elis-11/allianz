@@ -97,13 +97,19 @@
           width: 100%;
           display: flex;
           justify-content: space-around;
-
+          &:hover {
+            color: white;
+            cursor: pointer;
+          }
+          .avatar {
+            width: 15%;
+          }
           .name {
-            width: 30%;
+            width: 25%;
             text-align: left;
           }
           .email {
-            width: 60%;
+            width: 50%;
             text-align: left;
           }
         }

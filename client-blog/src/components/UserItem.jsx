@@ -2,7 +2,7 @@ import { useState } from "react";
 import { deleteUserApi, updateUserApi } from "../helpers/apiCalls";
 import { useDataContext } from "../context/DataProvider";
 import { MdSaveAlt } from "react-icons/md";
-import {AiTwotoneEdit, AiFillDelete} from "react-icons/ai"
+import { AiTwotoneEdit, AiFillDelete } from "react-icons/ai";
 
 export const UserItem = ({ user }) => {
   // import variable from context and rename to other variable using :
@@ -59,27 +59,36 @@ export const UserItem = ({ user }) => {
         // EDIT MODE => input fields + save button
         <div className="edit">
           <input
-          className="name"
+            className="name"
             name="username"
             value={userCopy.username}
             onChange={handleChange}
           />
-          <input className="email" value={userCopy.email} onChange={handleChange} />
+          <input
+            className="email"
+            value={userCopy.email}
+            onChange={handleChange}
+          />
           <MdSaveAlt className="save" onClick={submitUpdate} />
         </div>
       ) : (
         // view / display mode
         <div className="item">
-        <div className="name">{userCopy.username}</div>
-        <div className="email">{userCopy.email}</div>
+          <div className="avatar">
+            <img
+              style={{ width: "30px", borderRadius: "50%" }}
+              src={user.avatar}
+            />
+          </div>
+          <div className="name">{userCopy.username}</div>
+          <div className="email">{userCopy.email}</div>
         </div>
       )}
       {/* TOGGLE Edit mode by btton */}
-        {/* <div className="icons">
+      {/* <div className="icons">
           <AiTwotoneEdit className="icon" onClick={() => setEditMode(!editMode)}/>
           <AiFillDelete className="icon" onClick={() => handleDelete()}/>
         </div> */}
-
     </div>
   );
 };

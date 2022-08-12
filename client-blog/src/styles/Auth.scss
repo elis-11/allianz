@@ -10,7 +10,7 @@
   form {
     padding: 1rem;
     label {
-      img{
+      img {
         width: 100px;
         cursor: pointer;
         &:hover {
@@ -43,13 +43,13 @@
 }
 
 .Dashboard {
+  width: 100%;
   display: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  // background-image: linear-gradient(to right, rgb(242, 226, 226) , rgb(234, 234, 212));
   margin-top: 3rem;
-  width: 100%;
+  // background-image: linear-gradient(to right, rgb(242, 226, 226) , rgb(234, 234, 212));
   .users {
     width: 70%;
     margin: auto;
@@ -98,13 +98,20 @@
         width: 100%;
         display: flex;
         justify-content: space-around;
+        &:hover {
+          color: white;
+          cursor: pointer;
+        }
 
+        .avatar {
+          width: 10%;
+        }
         .name {
-          width: 30%;
+          width: 25%;
           text-align: left;
         }
         .email {
-          width: 60%;
+          width: 45%;
           text-align: left;
         }
       }

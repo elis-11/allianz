@@ -1,26 +1,26 @@
 .Posts {
+  width: 100%;
+  display: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-top: 3rem;
-display: flex;
-flex-direction: column;
-justify-content: center;
-  border: 1px solid rgb(181, 49, 49);
-  .container{
-    display: column;
-    justify-content: center;
-      .content {
-          border: 1px solid rgb(44, 173, 22);
-          width: 80%;
-          display: flex;
-          flex-wrap: wrap;
-          // align-content: flex-start;
-          // align-content: space-around;
-          .post {
-              width: 30%;
-            }
+  .content {
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .post {
+      width: 24%;
+      border: 1px solid white;
+      box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+      margin: 3rem;
     }
   }
 }
-.Details{
-    color: red;
-    margin-top: 3rem;
+.Details {
+  color: red;
+  margin-top: 3rem;
 }
