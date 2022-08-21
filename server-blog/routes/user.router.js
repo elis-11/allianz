@@ -148,6 +148,4 @@ userRouter.delete("/:id", auth, async (req, res, next) => {
 
 })
 
-
-
 export default userRouter
