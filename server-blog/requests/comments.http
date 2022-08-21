@@ -1,0 +1,33 @@
+@API_URL = http://localhost:5000
+
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmY0MGZkYjJkYzc4N2QyMDZiNTU2NzkiLCJ1c2VybmFtZSI6IkVsaXMiLCJlbWFpbCI6ImVsaXNAZ21haWwuY29tIiwiYXZhdGFyIjoiaHR0cHM6Ly9yZXMuY2xvdWRpbmFyeS5jb20vZG5nbDRkanZhL2ltYWdlL3VwbG9hZC92MTY2MDE2MjAxMy9sajVwZG1xYjFzaW10aGVoaGJsYy5wbmciLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2NjExMTEzOTQsImV4cCI6MTY2MTU0MzM5NH0.fZVmaL73_WXS1Cmk2HfaX5swQ7T3afY9lCcb9Mzpva4
+
+### all comments
+GET {{API_URL}}/comments
+Authorization: {{TOKEN}}
+Content-Type: application/json
+
+### create comment
+POST {{API_URL}}/comments
+Content-Type: application/json
+Authorization: {{TOKEN}}
+
+{
+    "post" : "62f40fdb2dc787d206b55679",
+    "author": "62f40fdb2dc787d206b55679",
+    "description" : "Tralala"
+}
+
+### update comment
+PATCH {{API_URL}}/comments/6302926fe22f33cf387e533c
+Content-Type: application/json
+Authorization: {{TOKEN}}
+
+{
+    "description" : "Hi",
+    "author" : "62f40fdb2dc787d206b55679"
+}
+
+### delete comment
+Delete {{API_URL}}/comments/6302926fe22f33cf387e533c
+Authorization: {{TOKEN}}

@@ -1,28 +1,46 @@
 import { Router } from "express";
-import { auth } from "../lib/auth.middleware.js";
 import Post from "../models/Post.js";
+import { auth } from "../lib/auth.middleware.js";
 import { v2 as cloudinary } from "cloudinary";
+import Comment from "../models/Comment.js";
 
-const postsRouter = Router();
+const postRouter = Router();
 
 // all Posts
-postsRouter.get("/", async (req, res, next) => {
+postRouter.get("/", async (req, res, next) => {
   const allPosts = await Post.find();
   res.json(allPosts);
 });
 
-// single Post
-postsRouter.get("/:id", auth, async (req, res, next) => {
-  try {
-    const singlePost = await Post.findById(req.params.id);
-    res.json(singlePost);
-  } catch (err) {
-    next(err);
-  }
+// get single Post
+// postRouter.get("/:id", auth, async (req, res, next) => {
+//   try {
+//     const singlePost = await Post.findById(req.params.id);
+//     res.json(singlePost);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+
+// get single Post + all realted comments
+postRouter.get("/:id", auth, async (req, res, next) => {
+  const post = await Post.findById(req.params.id).populate("author");
+  const comments = await Comment.find({ post: req.params.id }).populate(
+    "author"
+  );
+  res.json({
+    ...post.toObject(),
+    comments,
+  });
+});
+
+// get all comments of one post
+postRouter.get("/:id/comments", auth, async (req, res, next) => {
+  res.json(postComments);
 });
 
 // create Post  withoutb - AUTH
-postsRouter.post("/", auth, async (req, res, next) => {
+postRouter.post("/", auth, async (req, res, next) => {
   try {
     const newPost = await Post.create(req.body);
     res.json(newPost);
@@ -32,7 +50,7 @@ postsRouter.post("/", auth, async (req, res, next) => {
 });
 
 // create Post  with - AUTH
-postsRouter.post("/", auth, async (req, res, next) => {
+postRouter.post("/", auth, async (req, res, next) => {
   const post = await Post.create(req.body);
   res.json(post);
   if (!post.image) return;
@@ -49,7 +67,7 @@ postsRouter.post("/", auth, async (req, res, next) => {
 
 // Update Post
 // ROUTE: /post/:id
-postsRouter.patch("/:id", auth, async (req, res, next) => {
+postRouter.patch("/:id", auth, async (req, res, next) => {
   const postUpdateData = req.body;
   const postId = req.params.id;
 
@@ -64,7 +82,8 @@ postsRouter.patch("/:id", auth, async (req, res, next) => {
   }
 });
 
-postsRouter.delete("/:id", auth, async (req, res, next) => {
+// delete post
+postRouter.delete("/:id", auth, async (req, res, next) => {
   // findByIdAndUpdate can crash server
   // so catch it and prevent crash => just forward to error handler
   try {
@@ -75,4 +94,4 @@ postsRouter.delete("/:id", auth, async (req, res, next) => {
   }
 });
 
-export default postsRouter;
+export default postRouter;
