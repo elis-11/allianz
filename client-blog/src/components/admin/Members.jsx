@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDataContext } from "../../context/DataProvider";
 import { getUsersApi } from "../../helpers/apiCalls";
-import {UserList} from "../UserList"
 import "./Admin.scss";
 import { MemList } from "./MemList";
 
 export const Members = () => {
+  const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
   const { user, users, setUsers, errors, setErrors } = useDataContext();
@@ -30,11 +30,34 @@ export const Members = () => {
     loadData();
   }, [user]);
 
+const filteredUsers= users.filter(user => 
+  user.username.toLowerCase().includes(search.toLowerCase()) || 
+  user.email.toLowerCase().includes(search.toLowerCase())
+  )
+   
   return (
     <div className="Members">
-      <h2>Members</h2>
-      {/* <UserList /> */}
-      <MemList/>
+      {/* <h2> {users.length} {users.length === 1 ? "Member" : "Members"}</h2> */}
+
+      <div className="search">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <input
+            id="search"
+            type="text"
+            role="search"
+            placeholder="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </form>
+      </div>
+
+      <MemList users={filteredUsers} />
+      {/* <MemList /> */}
       <div className="errors">{errors}</div>
     </div>
   );
