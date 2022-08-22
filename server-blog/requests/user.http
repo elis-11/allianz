@@ -58,7 +58,7 @@ Content-Type: application/json
 
 {
   "username": "Albert",
-  "role": "Admin"
+  "role": "admin"
 }
 
 ### Delete user

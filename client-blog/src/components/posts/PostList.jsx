@@ -2,11 +2,9 @@ import { Link } from "react-router-dom";
 import { useDataContext } from "../../context/DataProvider";
 
 export const PostList = () => {
-// export const PostList = (index = 0) => {
   const { posts } = useDataContext();
 
   return (
-    <div className="container">
       <div className="content">
         {posts.map((post) => (
           <div key={post._id} className="post">
@@ -16,16 +14,15 @@ export const PostList = () => {
             </div>
             <div>{post.title}</div>
             <div>
-              {post.createdAt} by {post.author}
+              {post.createdAt.slice(0, 10)} by {post.author}
               {/* {post.createdAt.substring(0, 10)} by {post.author} */}
             </div>
             <div>{post.description}</div>
             <div>
-              <Link to={`/posts/${post.id}`}>Read more...</Link>
+              <Link to={`/posts/${post.id}`} >Read more...</Link>
             </div>
           </div>
         ))}
       </div>
-    </div>
   );
 };

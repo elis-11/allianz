@@ -32,7 +32,7 @@ export const Members = () => {
   }, [user]);
 
 const filteredUsers= users.filter(user => 
-  user.username.toLowerCase().includes(search.toLowerCase()) || 
+  user.name.toLowerCase().includes(search.toLowerCase()) || 
   user.email.toLowerCase().includes(search.toLowerCase())
   )
    

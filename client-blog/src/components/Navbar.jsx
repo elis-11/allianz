@@ -21,7 +21,7 @@ export const Navbar = () => {
       {!user && <NavLink to="/signup">Signup</NavLink>}
       {user && <NavLink to="/dashboard">Dashboard</NavLink>}
       <NavLink to="/posts">Posts</NavLink>
-      {user?.role === "Admin" && <NavLink to="/admin">Admin</NavLink>}
+      {user?.role === "admin" && <NavLink to="/admin">admin</NavLink>}
       {user && (
         <NavLink to="#" onClick={logout}>
           Logout
