@@ -27,6 +27,11 @@ export const Navbar = () => {
           Logout
         </NavLink>
       )}
+      {user && <NavLink to="/dashboard">
+      <img className="user-avatar" src={user.avatar} /> 
+        
+        </NavLink>}
+
     </nav>
   );
 };
